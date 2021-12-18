@@ -5,21 +5,27 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "dotenv": "^10.0.0",
-    "nodemon": "^2.0.15"
+    "dotenv": "10.0.0",
+    "nodemon": "2.0.15",
+    "standard": "16.0.4"
   },
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "cors": "^2.8.5",
-    "express": "^4.17.2",
-    "mongoose": "^6.1.2",
-    "multer": "^1.4.4",
-    "shortid": "^2.2.16"
+    "body-parser": "1.19.1",
+    "cors": "2.8.5",
+    "express": "4.17.2",
+    "mongoose": "6.1.2",
+    "multer": "1.4.4",
+    "shortid": "2.2.16"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/standard/eslintrc.json"
   }
 }
