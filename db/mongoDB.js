@@ -1,13 +1,13 @@
-const mongoose = require('mongoose')
-const connectionString = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASSWORD}@cluster0.cpnkf.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`
+const mongoose = require("mongoose");
+const connectionString = `mongodb+srv://Odiseo:Mapamapa84@cluster0.cpnkf.mongodb.net/myPortfolio?retryWrites=true&w=majority`;
 
 mongoose
   .connect(connectionString)
   .then(() => {
-    console.log('data connected')
+    console.log("data connected");
   })
   .catch((err) => {
-    console.error(err)
-  })
+    console.error(err);
+  });
 
-exports.module = mongoose
+exports.module = mongoose;

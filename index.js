@@ -1,4 +1,3 @@
-require("dotenv").config();
 require("./db/mongoDB.js");
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -32,6 +31,6 @@ app.use((error, request, response, next) => {
 
 app.use(express.static("uploads"));
 
-app.listen(process.env.APP_PORT, function () {
-  console.log(`Server de Portafolio levantado en Port:${process.env.APP_PORT}`);
+app.listen(process.env.PORT || 3001, function () {
+  console.log(`Server de Portafolio levantado en Port:${process.env.PORT}`);
 });
