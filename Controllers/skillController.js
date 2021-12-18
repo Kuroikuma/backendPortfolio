@@ -21,7 +21,7 @@ exports.add = (req, res, next) => {
   const { host, port } = appConfig;
 
   if (req.file && req.file.filename) {
-    skill.img = `${process.env.WEB_URL}${req.file.filename}`;
+    skill.img = `${process.env.HEROKU_URL}${req.file.filename}`;
   }
 
   skill
@@ -65,7 +65,7 @@ exports.updateById = (req, res, next) => {
   const skill = req.body;
   const { host, port } = appConfig;
   if (req.file && req.file.filename) {
-    skill.img = `${process.env.WEB_URL}${req.file.filename}`;
+    skill.img = `${process.env.HEROKU_URL}${req.file.filename}`;
   } else {
     Skill.findById(id)
       .then((response) => {

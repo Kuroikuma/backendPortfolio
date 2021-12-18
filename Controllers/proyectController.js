@@ -20,7 +20,7 @@ exports.add = (req, res, next) => {
 
   if (req.files) {
     req.files.map((item) =>
-      proyect.imgs.push(`${process.env.WEB_URL}${item.filename}`)
+      proyect.imgs.push(`${process.env.HEROKU_URL}${item.filename}`)
     );
   }
   proyect
