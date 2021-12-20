@@ -32,10 +32,20 @@ exports.add = (req, res, next) => {
       next(error);
     });
 };
+
 exports.show = (req, res, next) => {
   Proyect.find({})
     .then((respuesta) => {
-      res.status(200).json({ respuesta });
+      res.status(200).json(respuesta);
+    })
+    .catch((error) => next(error));
+};
+
+exports.deleteById = (req, res, next) => {
+  const id = req.params.id;
+  Proyect.findByIdAndRemove(id)
+    .then((proyect) => {
+      res.status(204).send(proyect);
     })
     .catch((error) => next(error));
 };

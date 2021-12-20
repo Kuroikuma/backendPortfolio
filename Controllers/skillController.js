@@ -37,7 +37,7 @@ exports.add = (req, res, next) => {
 exports.show = (req, res, next) => {
   Skill.find({})
     .then((respuesta) => {
-      res.status(200).json({ respuesta });
+      res.status(200).json( respuesta );
     })
     .catch((error) => next(error));
 };
@@ -46,7 +46,7 @@ exports.showById = (req, res, next) => {
   const id = req.params.id;
   Skill.findById(id)
     .then((skill) => {
-      res.status(200).json({ skill });
+      res.status(200).json( skill );
     })
     .catch((error) => next(error));
 };
@@ -55,7 +55,7 @@ exports.deleteById = (req, res, next) => {
   const id = req.params.id;
   Skill.findByIdAndRemove(id)
     .then((skill) => {
-      res.status(204).end();
+      res.status(204).send(skill);
     })
     .catch((error) => next(error));
 };

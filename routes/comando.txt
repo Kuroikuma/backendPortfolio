@@ -1,0 +1,2 @@
+para hacer una variable de entorno la url
+heroku config:set HEROKU_URL=$(heroku info -s | grep web_url | cut -d= -f2)
