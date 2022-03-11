@@ -7,6 +7,7 @@ const proyectController = require('../Controllers/proyectController')
 module.exports = function () {
   /// /Projects///////////////////////
   router.post('/api/project', proyectController.add)
+  router.get('/api/project/pagination', proyectController.pagination)
   router.get('/api/project', proyectController.show)
   router.get('/api/project/:id', proyectController.showById)
   router.put('/api/project/:id', proyectController.updateById)

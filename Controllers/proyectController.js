@@ -35,6 +35,29 @@ exports.showById = (req, res, next) => {
     .catch((error) => next(error))
 }
 
+exports.pagination = async (req, res, next) => {
+  const offset = parseInt(req.query.offset)
+  const limit = parseInt(req.query.limit)
+
+  try {
+    const result = await Proyect.find({}).skip(offset).limit(limit)
+    const response = {
+      result: result,
+      next: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
+        offset + 2
+      }&limit=${limit}`,
+      previous: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
+        offset <= 0 ? 0 : offset - 2
+      }&limit=${limit}`,
+    }
+
+    res.status(200).json(response)
+  } catch (error) {
+    console.log('f')
+    next(error)
+  }
+}
+
 exports.deleteById = (req, res, next) => {
   const id = req.params.id
   Proyect.findByIdAndRemove(id)
