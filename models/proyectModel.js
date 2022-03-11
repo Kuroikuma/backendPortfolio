@@ -3,7 +3,10 @@ const { Schema, model } = require('mongoose')
 const proyectSchema = new Schema({
   name: String,
   descripcion: String,
-  imgs: [String]
+  imgs: [String],
+  technologies: [String],
+  url_code: String,
+  url_demo: String,
 })
 
 proyectSchema.set('toJSON', {
@@ -11,7 +14,7 @@ proyectSchema.set('toJSON', {
     returnedObject.id = returnedObject._id
     delete returnedObject._id
     delete returnedObject.__v
-  }
+  },
 })
 
 const Proyect = model('Proyect', proyectSchema)

@@ -2,7 +2,8 @@ const { Schema, model } = require('mongoose')
 
 const skillSchema = new Schema({
   img: String,
-  name: String
+  name: String,
+  rank: String,
 })
 
 skillSchema.set('toJSON', {
@@ -10,7 +11,7 @@ skillSchema.set('toJSON', {
     returnedObject.id = returnedObject._id
     delete returnedObject._id
     delete returnedObject.__v
-  }
+  },
 })
 
 const Skill = model('Skill', skillSchema)
