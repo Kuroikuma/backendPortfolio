@@ -18,12 +18,19 @@ exports.add = (req, res, next) => {
     })
 }
 
-exports.show = (req, res, next) => {
-  Proyect.find({})
-    .then((response) => {
-      res.status(200).json(response)
-    })
-    .catch((error) => next(error))
+exports.show = async (req, res, next) => {
+  try {
+    const result = await Proyect.find({}).limit(2)
+    const response = {
+      result: result,
+      next: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${2}&limit=${2}`,
+      previous: null,
+    }
+
+    res.status(200).json(response)
+  } catch (error) {
+    next(error)
+  }
 }
 
 exports.showById = (req, res, next) => {
@@ -53,7 +60,6 @@ exports.pagination = async (req, res, next) => {
 
     res.status(200).json(response)
   } catch (error) {
-    console.log('f')
     next(error)
   }
 }
