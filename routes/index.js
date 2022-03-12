@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const skillController = require('../Controllers/skillController')
+const certController = require('../Controllers/certController')
 const proyectController = require('../Controllers/proyectController')
 
 module.exports = function () {
@@ -18,5 +19,8 @@ module.exports = function () {
   router.get('/api/skill/:id', skillController.showById)
   router.delete('/api/skill/:id', skillController.deleteById)
   router.put('/api/skill/:id', skillController.updateById)
+  ////////Cert/////////////
+  router.post('/api/cert', certController.add)
+  router.get('/api/cert/pagination', certController.pagination)
   return router
 }
