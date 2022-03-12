@@ -13,6 +13,21 @@ exports.add = (req, res, next) => {
     })
 }
 
+exports.show = async (req, res, next) => {
+  try {
+    const result = await Cert.find({}).limit(2)
+    const response = {
+      result: result,
+      next: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${2}&limit=${2}`,
+      previous: null,
+    }
+
+    res.status(200).json(response)
+  } catch (error) {
+    next(error)
+  }
+}
+
 exports.pagination = async (req, res, next) => {
   const offset = parseInt(req.query.offset)
   const limit = parseInt(req.query.limit)
