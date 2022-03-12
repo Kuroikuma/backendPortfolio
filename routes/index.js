@@ -23,5 +23,6 @@ module.exports = function () {
   router.post('/api/cert', certController.add)
   router.get('/api/cert/pagination', certController.pagination)
   router.get('/api/cert', certController.show)
+  router.get('/api/cert/all', certController.showAll)
   return router
 }
