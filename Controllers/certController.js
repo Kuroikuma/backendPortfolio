@@ -40,7 +40,7 @@ exports.show = async (req, res, next) => {
 
 exports.pagination = async (req, res, next) => {
   const offset = parseInt(req.query.offset)
-  const limit = parseInt(req.query.limit)
+  const limit = offset === 18 ? 8 : parseInt(req.query.limit)
 
   try {
     const result = await Cert.find({}).skip(offset).limit(limit)
