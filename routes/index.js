@@ -24,5 +24,6 @@ module.exports = function () {
   router.get('/api/cert/pagination', certController.pagination)
   router.get('/api/cert', certController.show)
   router.get('/api/cert/all', certController.showAll)
+  router.delete('/api/cert/:id', certController.deleteById)
   return router
 }

@@ -59,3 +59,12 @@ exports.pagination = async (req, res, next) => {
     next(error)
   }
 }
+
+exports.deleteById = (req, res, next) => {
+  const id = req.params.id
+  Cert.findByIdAndRemove(id)
+    .then((response) => {
+      res.status(204).send(response)
+    })
+    .catch((error) => next(error))
+}

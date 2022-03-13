@@ -44,7 +44,7 @@ exports.showById = (req, res, next) => {
 
 exports.pagination = async (req, res, next) => {
   const offset = parseInt(req.query.offset)
-  const limit = offset === 4 ? 3 : parseInt(req.query.limit)
+  const limit = offset === 8 ? 3 : parseInt(req.query.limit)
 
   try {
     const result = await Proyect.find({}).skip(offset).limit(limit)
