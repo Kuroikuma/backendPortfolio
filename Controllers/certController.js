@@ -43,12 +43,14 @@ exports.pagination = async (req, res, next) => {
   const limit = parseInt(req.query.limit)
 
   try {
-    const result = await Cert.find({}).skip(offset).limit(limit)
+    const result = await Cert.find({})
+      .skip(offset)
+      .limit(offset === 18 ? 8 : limit)
     const response = {
       result: result,
       next: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${
         offset + 6
-      }&limit=${offset === 18 ? 8 : limit}`,
+      }&limit=${limit}`,
       previous: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${
         offset <= 0 ? 0 : offset - 6
       }&limit=${limit}`,

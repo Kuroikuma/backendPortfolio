@@ -47,12 +47,14 @@ exports.pagination = async (req, res, next) => {
   const limit = parseInt(req.query.limit)
 
   try {
-    const result = await Proyect.find({}).skip(offset).limit(limit)
+    const result = await Proyect.find({})
+      .skip(offset)
+      .limit(offset === 8 ? 3 : limit)
     const response = {
       result: result,
       next: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
         offset + 2
-      }&limit=${offset === 8 ? 3 : limit}`,
+      }&limit=${limit}`,
       previous: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
         offset <= 0 ? 0 : offset - 2
       }&limit=${limit}`,
