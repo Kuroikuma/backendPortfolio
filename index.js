@@ -10,7 +10,15 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://portfolio-react-seven-sigma.vercel.app',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+    allowedHeaders: 'Content-Type,Authorization',
+  };
+
+app.use(cors(corsOptions));
 
 app.use("/", routes());
 
