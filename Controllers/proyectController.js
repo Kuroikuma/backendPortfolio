@@ -23,7 +23,7 @@ exports.show = async (req, res, next) => {
     const result = await Proyect.find({}).limit(2)
     const response = {
       result: result,
-      next: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${2}&limit=${2}`,
+      next: `https://backend-portfolio-nu.vercel.app/project/pagination?offset=${2}&limit=${2}`,
       previous: null,
     }
 
@@ -52,10 +52,10 @@ exports.pagination = async (req, res, next) => {
       .limit(offset === 8 ? 3 : limit)
     const response = {
       result: result,
-      next: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
+      next: `https://backend-portfolio-nu.vercel.app/api/project/pagination?offset=${
         offset + 2
       }&limit=${limit}`,
-      previous: `https://pure-ridge-19998.herokuapp.com/api/project/pagination?offset=${
+      previous: `https://backend-portfolio-nu.vercel.app/api/project/pagination?offset=${
         offset <= 0 ? 0 : offset - 2
       }&limit=${limit}`,
     }

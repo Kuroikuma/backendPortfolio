@@ -28,7 +28,7 @@ exports.show = async (req, res, next) => {
     const result = await Cert.find({}).limit(6)
     const response = {
       result: result,
-      next: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${6}&limit=${6}`,
+      next: `https://backend-portfolio-nu.vercel.app/api/cert/pagination?offset=${6}&limit=${6}`,
       previous: null,
     }
 
@@ -48,10 +48,10 @@ exports.pagination = async (req, res, next) => {
       .limit(offset === 18 ? 8 : limit)
     const response = {
       result: result,
-      next: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${
+      next: `https://backend-portfolio-nu.vercel.app/api/cert/pagination?offset=${
         offset + 6
       }&limit=${limit}`,
-      previous: `https://pure-ridge-19998.herokuapp.com/api/cert/pagination?offset=${
+      previous: `https://backend-portfolio-nu.vercel.app/api/cert/pagination?offset=${
         offset <= 0 ? 0 : offset - 6
       }&limit=${limit}`,
     }
